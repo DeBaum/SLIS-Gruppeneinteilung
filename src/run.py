@@ -1,3 +1,4 @@
+import os
 from Student import Student
 
 from matcher.Prio1 import Prio1Matcher
@@ -22,6 +23,9 @@ for student in students:
     if student.owner is not None and projects.count(student.owner) == 0:
         projects.append(student.owner)
 
+
+if not os.path.exists('data/out/'):
+    os.makedirs('data/out/')
 
 for matcher in matchers:
     m = OptimizerMatcher(projects, students, matcher)
